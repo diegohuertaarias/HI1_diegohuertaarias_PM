@@ -1,16 +1,5 @@
 package com.empresa.App;
-
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-public class MainActivity extends AppCompatActivity {
-
+import android.content.SharedPreferences; import android.os.Bundle; import android.os.CountDownTimer; import android.view.View; import android.widget.Button; import android.widget.EditText; import android.widget.TextView; import androidx.appcompat.app.AlertDialog; import androidx.appcompat.app.AppCompatActivity;  public class MainActivity extends AppCompatActivity {
     private int score = 0;
     private TextView textScore;
     private TextView textRanking;
@@ -19,6 +8,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonReset;
     private SharedPreferences sharedPreferences;
     private CountDownTimer countDownTimer;
+    private String userInitials;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +40,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        startTimer();
+        promptUserInitials();
+    }
+
+    private void promptUserInitials() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Enter your initials (3 letters)");
+
+        final EditText input = new EditText(this);
+        builder.setView(input);
+
+        builder.setPositiveButton("OK", (dialog, which) -> {
+            userInitials = input.getText().toString();
+            if (userInitials.length() == 3) {
+                startTimer();
+            } else {
+                promptUserInitials();
+            }
+        });
+
+        builder.setCancelable(false);
+        builder.show();
     }
 
     private void startTimer() {
@@ -88,4 +98,4 @@ public class MainActivity extends AppCompatActivity {
 
         textRanking.setText("High Score: " + highScore);
     }
-}
+} 
