@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "285161990291",
+    "project_id": "hito1-diego-huerta-arias-pm",
+    "storage_bucket": "hito1-diego-huerta-arias-pm.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285161990291:android:973037ef133f9d7d5f0566",
+        "android_client_info": {
+          "package_name": "com.empresa.App"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC063Ps3TvuOlJ7UGZJ_hvRdX1T4bSUYcg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
